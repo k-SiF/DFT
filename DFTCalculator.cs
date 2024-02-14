@@ -5,7 +5,7 @@
 using System;
 using System.IO;
 
-namespace LearnC
+namespace FT
 {
     public struct Complex
     {
