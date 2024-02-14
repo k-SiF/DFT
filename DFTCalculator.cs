@@ -26,12 +26,10 @@ namespace LearnC
         }
     }
 
-
     class DFTCalculator
     {
         static void Main(string[] args)
         {
-
             Console.Write("Input the number of samples (N) : ");
             int N = Convert.ToInt32(Console.ReadLine()); //Number of samples
             string filepath = @"dftpoints.txt";
@@ -42,7 +40,6 @@ namespace LearnC
             Complex q = new Complex(0, 0);
             Complex[] ca = new Complex[N];   //Array that stores the complex values of one frequency bin to add them up(Gets cleared in the next frequency bin.
             Complex[] res = new Complex[N]; //Sum for each frequency bin
-
 
             Console.WriteLine("\nInput the samples:");
             for (int i = 0; i < s.Length; i++)
@@ -70,23 +67,16 @@ namespace LearnC
 
                     Complex e = new Complex((float)cosB, (float)sinB);
 
-
-
                     ca[i] = e;
-
                     i++;
-
-
                 }
 
                 Complex sum = new Complex(0, 0);
                 foreach (Complex a in ca)
                 {
                     sum += a;
-
-
                 }
-
+                
                 if (sum.real < 1 && sum.real > -1)
                 {
                     sum.real = 0;
@@ -105,7 +95,6 @@ namespace LearnC
                 Console.WriteLine("X(k) = " + sum + "\n\n");
 
                 j++;
-
             }
 
             string[] lines = new string[2*N];
@@ -116,13 +105,10 @@ namespace LearnC
                 lines[d] = c.ToString();
                 d++;
             }
-
-            
+        
             File.WriteAllLines(filepath, lines);
 
             Console.ReadKey();
         }
-
     }
 }
-
